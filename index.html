@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Event Registration</title>
+  <title>INFINIT 2K25 - Event Registration</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background-color: #f8f9fa;
     }
 
@@ -25,28 +26,86 @@
       background: linear-gradient(to right, #007bff, #6610f2);
       color: white;
       text-align: center;
-      padding: 50px 20px;
+      padding: 80px 20px;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 20px;
     }
 
+    .hero p {
+      font-size: 1.25rem;
+    }
+
     .card {
-      transition: transform 0.2s;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .card-body h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .card-body p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background-color: #6610f2;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #007bff;
     }
 
     .footer {
       background-color: #343a40;
       color: #ffffff;
       text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #343a40;
+      margin-bottom: 40px;
+    }
+
+    .event-type-title {
+      color: #6610f2;
     }
   </style>
 </head>
@@ -56,7 +115,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="#">INFINIT 2K25</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -79,33 +139,46 @@
   </div>
 
   <!-- Technical Events Section -->
-  <div class="container my-5" id="technical">
-    <h2 class="text-center mb-4">Technical Events</h2>
+  <div class="container" id="technical">
+    <h2 class="section-title text-center">Technical Events</h2>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100">
-          <div class="card-body text-center">
+        <div class="card">
+          <img src="imgs/codeathon.jpg" alt="Code-A-Thon">
+          <div class="card-body">
             <h5 class="card-title">Code-A-Thon</h5>
             <p class="card-text">Show off your coding skills in a competitive environment.</p>
-            <a href="codeathon.html" class="btn btn-primary">Register</a>
+            <a href="https://forms.gle/Code-A-Thon-Form" class="btn btn-primary" target="_blank">Register</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100">
-          <div class="card-body text-center">
+        <div class="card">
+          <img src="imgs/codeclash.jpg" alt="Code-Clash">
+          <div class="card-body">
             <h5 class="card-title">Code-Clash</h5>
             <p class="card-text">Compete with the best programmers in a fun challenge.</p>
-            <a href="codeclash.html" class="btn btn-primary">Register</a>
+            <a href="https://forms.gle/Code-Clash-Form" class="btn btn-primary" target="_blank">Register</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100">
-          <div class="card-body text-center">
+        <div class="card">
+          <img src="imgs/techxpo.jpg" alt="TechXpo">
+          <div class="card-body">
             <h5 class="card-title">TechXpo</h5>
             <p class="card-text">Showcase your innovative projects and ideas.</p>
-            <a href="techxpo.html" class="btn btn-primary">Register</a>
+            <a href="https://forms.gle/TechXpo-Form" class="btn btn-primary" target="_blank">Register</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/quizclash.jpg" alt="Quiz Clash">
+          <div class="card-body">
+            <h5 class="card-title">Quiz Clash</h5>
+            <p class="card-text">Test your knowledge with a competitive quiz.</p>
+            <a href="https://forms.gle/Quiz-Clash-Form" class="btn btn-primary" target="_blank">Register</a>
           </div>
         </div>
       </div>
@@ -113,33 +186,56 @@
   </div>
 
   <!-- Non-Technical Events Section -->
-  <div class="container my-5" id="nontechnical">
-    <h2 class="text-center mb-4">Non-Technical Events</h2>
+  <div class="container" id="nontechnical">
+    <h2 class="section-title text-center">Non-Technical Events</h2>
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card h-100">
-          <div class="card-body text-center">
+        <div class="card">
+          <img src="imgs/artexhibition.jpg" alt="Art Exhibition">
+          <div class="card-body">
             <h5 class="card-title">Art Exhibition</h5>
             <p class="card-text">Showcase your artistic talents in a creative display.</p>
-            <a href="artexhibition.html" class="btn btn-primary">Register</a>
+            <a href="https://forms.gle/Art-Exhibition-Form" class="btn btn-primary" target="_blank">Register</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100">
-          <div class="card-body text-center">
+        <div class="card">
+          <img src="imgs/bgmi.jpg" alt="BGMI">
+          <div class="card-body">
             <h5 class="card-title">BGMI</h5>
             <p class="card-text">Battle it out in the ultimate gaming showdown.</p>
-            <a href="bgmi.html" class="btn btn-primary">Register</a>
+            <a href="https://forms.gle/BGMI-Form" class="btn btn-primary" target="_blank">Register</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card h-100">
-          <div class="card-body text-center">
+        <div class="card">
+          <img src="imgs/freefire.jpg" alt="FreeFire">
+          <div class="card-body">
+            <h5 class="card-title">FreeFire</h5>
+            <p class="card-text">Compete with friends in an action-packed gaming event.</p>
+            <a href="https://forms.gle/FreeFire-Form" class="btn btn-primary" target="_blank">Register</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/contentcreation.jpg" alt="Content Creation">
+          <div class="card-body">
+            <h5 class="card-title">Content Creation</h5>
+            <p class="card-text">Express your creativity through content creation.</p>
+            <a href="https://forms.gle/Content-Creation-Form" class="btn btn-primary" target="_blank">Register</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="imgs/treasurehunt.jpg" alt="Treasure Hunt">
+          <div class="card-body">
             <h5 class="card-title">Treasure Hunt</h5>
             <p class="card-text">Solve clues and find the hidden treasures.</p>
-            <a href="treasurehunt.html" class="btn btn-primary">Register</a>
+            <a href="https://forms.gle/Treasure-Hunt-Form" class="btn btn-primary" target="_blank">Register</a>
           </div>
         </div>
       </div>
@@ -147,11 +243,9 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 INFINIT 2K25 | Designed by Pro Developers</p>
-    </div>
-  </footer>
+  <div class="footer">
+    <p>&copy; 2024 INFINIT 2K25. All rights reserved.</p>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
