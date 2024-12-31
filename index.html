@@ -4,115 +4,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INFINIT 2K25 - Event Registration</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>INFINIT 2K25</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
     }
 
     .navbar {
-      background-color: #343a40;
+      background: linear-gradient(to right, #6610f2, #ff6347);
     }
 
-    .navbar-brand,
-    .nav-link {
-      color: #ffffff !important;
-    }
-
-    .hero {
-      background: linear-gradient(to right, #007bff, #6610f2);
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
       color: white;
+      animation: infinityColors 3s infinite;
+    }
+
+    @keyframes infinityColors {
+
+      0%,
+      100% {
+        color: #6610f2;
+      }
+
+      50% {
+        color: #ff6347;
+      }
+    }
+
+    #countdown-section {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
       text-align: center;
-      padding: 80px 20px;
+      width: 80%;
+      /* Initially make the section a little smaller */
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .hero h1 {
-      font-size: 3rem;
+
+    #countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      /* Allow wrapping for smaller screens */
+    }
+
+    .countdown-element {
+      background-color: #ff7f00;
+      padding: 10px;
+      border-radius: 8px;
+      color: white;
+      width: 60px;
+      /* Smaller width */
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+      /* Spacing for better alignment on smaller screens */
+    }
+
+    .timer-number {
+      font-size: 22px;
+      /* Smaller font size */
+      font-weight: bold;
+    }
+
+    .time-label {
+      font-size: 10px;
+      /* Smaller label size */
+      margin-top: 3px;
+    }
+
+    #countdown-section h2 {
+      font-size: 20px;
+      /* Smaller heading font */
+      font-weight: bold;
+      color: #ff7f00;
+      margin-bottom: 10px;
+    }
+
+    .progress {
+      height: 5px;
+      /* Smaller height for the progress bar */
+      background-color: #ddd;
+      border-radius: 4px;
+      margin-top: 15px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: #ff7f00;
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+
+    /* Media Queries for smaller screens */
+    @media (max-width: 768px) {
+      #countdown-section {
+        width: 90%;
+        /* Adjust section width on tablets and smaller screens */
+        padding: 15px;
+        /* Less padding for small screens */
+      }
+
+      .countdown-element {
+        width: 50px;
+        /* Even smaller width for countdown elements */
+        padding: 8px;
+        /* Smaller padding for the countdown elements */
+      }
+
+      .timer-number {
+        font-size: 18px;
+        /* Smaller font size */
+      }
+
+      .time-label {
+        font-size: 8px;
+        /* Smaller label size */
+      }
+
+      #countdown-section h2 {
+        font-size: 18px;
+        /* Adjust heading size for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      #countdown-section {
+        width: 95%;
+        /* Full width for very small screens (e.g., mobile phones) */
+        padding: 10px;
+        /* Even less padding */
+      }
+
+      .countdown-element {
+        width: 40px;
+        /* Smaller countdown element width */
+        padding: 6px;
+        /* Smaller padding */
+      }
+
+      .timer-number {
+        font-size: 16px;
+        /* Smaller font size for mobile */
+      }
+
+      .time-label {
+        font-size: 7px;
+        /* Even smaller label size */
+      }
+
+      #countdown-section h2 {
+        font-size: 16px;
+        /* Smaller heading font for mobile */
+      }
+    }
+
+
+    .event-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-    }
-
-    .card {
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .card img {
+    .event-image {
       width: 100%;
-      height: 250px;
+      height: 200px;
       object-fit: cover;
     }
 
-    .card-body {
-      padding: 30px;
-      text-align: center;
+    .event-card-body {
+      padding: 20px;
     }
 
-    .card-body h5 {
+    .event-title {
       font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    .card-body p {
-      font-size: 1rem;
-      margin-bottom: 20px;
+      font-weight: bold;
+      color: #6610f2;
     }
 
     .btn-primary {
       background-color: #6610f2;
       border: none;
-      padding: 10px 20px;
-      font-size: 1.1rem;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
 
     .btn-primary:hover {
-      background-color: #007bff;
+      background-color: #ff6347;
     }
 
-    .footer {
-      background-color: #343a40;
-      color: #ffffff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
+    .modal-content {
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
-    .container {
-      margin-top: 50px;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #343a40;
-      margin-bottom: 40px;
-    }
-
-    .event-type-title {
+    .modal-title {
       color: #6610f2;
+      font-weight: bold;
+    }
+
+    .modal-body img {
+      border: 2px solid #6610f2;
+      border-radius: 5px;
+    }
+
+    .alert {
+      display: none;
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="#">INFINIT 2K25</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -122,132 +238,787 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
+            <a class="nav-link" href="#about-event">About</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#technical">Technical Events</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#nontechnical">Non-Technical Events</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#stalls">Stalls</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
+  <section id="about-event" class="container py-5">
+    <h2 class="section-heading text-center">About INFINIT 2K25</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="imgs/about-event.jpg" alt="About INFINIT 2K25" class="img-fluid rounded">
+      </div>
+      <div class="col-md-6">
+        <p>
+          <strong>INFINIT 2K25</strong> is the flagship annual event of the
+          <strong>Department of Information Technology</strong>, Sarcia Reddy College of Engineering,
+          Eluru, Andhra Pradesh. This event celebrates innovation, creativity, and technical excellence,
+          offering a platform for students to unleash their potential and showcase their talents.
+        </p>
+        <p>
+          Packed with a variety of <strong>technical</strong> and <strong>non-technical events</strong>,
+          this fest promises an exciting and enriching experience for all participants. Whether you're a
+          coder, a gamer, an artist, or someone with a zest for fun and learning, <strong>INFINIT 2K25</strong>
+          has something special for you!
+        </p>
+        <p>
+          <strong>Event Date:<span style="color:darkmagenta;">March 12, 2025</span><br></strong>
+          <strong>Registration Deadline: <span style="color: darkmagenta;">March 11, 2025, at 11:59 PM</span></strong>
+        </p>
+        <p>
+          Join us and be a part of this remarkable journey that blends technology, creativity, and enjoyment
+          like never before. We can’t wait to see you at <strong>INFINIT 2K25</strong>!
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="countdown-section" class="container py-5 text-center">
+    <h2 class="mb-5" style="color:#6610f2;">Countdown to INFINIT 2K25</h2>
+    <div id="countdown-timer" class="timer-box">
+      <div class="countdown-element">
+        <span id="days" class="timer-number">00</span>
+        <div class="time-label">Days</div>
+      </div>
+      <div class="countdown-element">
+        <span id="hours" class="timer-number">00</span>
+        <div class="time-label">Hours</div>
+      </div>
+      <div class="countdown-element">
+        <span id="minutes" class="timer-number">00</span>
+        <div class="time-label">Minutes</div>
+      </div>
+      <div class="countdown-element">
+        <span id="seconds" class="timer-number">00</span>
+        <div class="time-label">Seconds</div>
+      </div>
+    </div>
+    <div class="progress mt-4">
+      <div id="countdown-progress" class="progress-bar" style="width: 0%;"></div>
+    </div>
+  </section>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <h1>Welcome to INFINIT 2K25</h1>
-    <p>Register now for the most exciting technical and non-technical events!</p>
-  </div>
 
-  <!-- Technical Events Section -->
-  <div class="container" id="technical">
-    <h2 class="section-title text-center">Technical Events</h2>
-    <div class="row g-4">
+
+  <section id="technical" class="container py-5">
+    <h2 class="text-center mb-5">Technical Events</h2>
+    <div class="row">
+      <!-- Code-A-Thon -->
       <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/codeathon.jpg" alt="Code-A-Thon">
-          <div class="card-body">
-            <h5 class="card-title">Code-A-Thon</h5>
-            <p class="card-text">Show off your coding skills in a competitive environment.</p>
-            <a href="https://forms.gle/Code-A-Thon-Form" class="btn btn-primary" target="_blank">Register</a>
+        <div class="event-card">
+          <img src="imgs/codeathon.jpg" alt="Code-A-Thon" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Code-A-Thon</h5>
+            <p>Join the ultimate coding marathon and showcase your skills. Collaborate and compete for glory!</p>
+            <p><strong>4 Persons</strong></p>
+            <p><strong>Registration Fee:</strong> ₹300</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#codethonModal">Register Now</button>
           </div>
         </div>
       </div>
+
+      <!-- CodeClash -->
       <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/codeclash.jpg" alt="Code-Clash">
-          <div class="card-body">
-            <h5 class="card-title">Code-Clash</h5>
-            <p class="card-text">Compete with the best programmers in a fun challenge.</p>
-            <a href="https://forms.gle/Code-Clash-Form" class="btn btn-primary" target="_blank">Register</a>
+        <div class="event-card">
+          <img src="imgs/codeclash.jpg" alt="CodeClash" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">CodeClash</h5>
+            <p>Compete head-to-head in a battle of logic, coding, and problem-solving skills!</p>
+            <p><strong>1 Person</strong></p>
+            <p><strong>Registration Fee:</strong> ₹100</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#codeclashModal">Register
+              Now</button>
           </div>
         </div>
       </div>
+
+      <!-- TechXpo -->
       <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/techxpo.jpg" alt="TechXpo">
-          <div class="card-body">
-            <h5 class="card-title">TechXpo</h5>
-            <p class="card-text">Showcase your innovative projects and ideas.</p>
-            <a href="https://forms.gle/TechXpo-Form" class="btn btn-primary" target="_blank">Register</a>
+        <div class="event-card">
+          <img src="imgs/techxpo.jpg" alt="TechXpo" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">TechXpo</h5>
+            <p>Showcase your innovative projects and ideas at this technical expo!</p>
+            <p><strong>3 Persons</strong></p>
+            <p><strong>Registration Fee:</strong> ₹200</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#techxpoModal">Register Now</button>
           </div>
         </div>
       </div>
+
+      <!-- Quiz Clash -->
       <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/quizclash.jpg" alt="Quiz Clash">
-          <div class="card-body">
-            <h5 class="card-title">Quiz Clash</h5>
-            <p class="card-text">Test your knowledge with a competitive quiz.</p>
-            <a href="https://forms.gle/Quiz-Clash-Form" class="btn btn-primary" target="_blank">Register</a>
+        <div class="event-card">
+          <img src="imgs/quizclash.jpg" alt="Quiz Clash" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Quiz Clash</h5>
+            <p>Test your knowledge and compete with others in this fast-paced quiz event!</p>
+            <p><strong>4 Persons</strong></p>
+            <p><strong>Registration Fee:</strong> ₹300</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quizclashModal">Register
+              Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="non-technical" class="container py-5">
+    <h2 class="text-center mb-5">Non-Technical Events</h2>
+    <div class="row">
+      <!-- BGMI -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/bgmi.jpg" alt="BGMI" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">BGMI</h5>
+            <p>Show off your gaming skills in this exciting BGMI battle!</p>
+            <p><strong>4 Persons</strong></p>
+            <p><strong>Registration Fee:</strong> ₹400</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bgmiModal">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Free Fire -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/freefire.jpg" alt="Free Fire" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Free Fire</h5>
+            <p>Join the ultimate Free Fire showdown and battle for victory!</p>
+            <p><strong>4 Persons</strong></p>
+            <p><strong>Registration Fee:</strong> ₹400</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#freefireModal">Register Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Art Exhibition -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/artexhibition.jpg" alt="Art Exhibition" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Art Exhibition</h5>
+            <p>Display your creativity and artistic talent in this vibrant exhibition!</p>
+            <p><strong>1 Person</strong></p>
+            <p><strong>Registration Fee:</strong> ₹100</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#artexhibitionModal">Register
+              Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Creation -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/contentcreation.jpg" alt="Content Creation" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Content Creation</h5>
+            <p>Unleash your creative side by participating in this unique content creation challenge!</p>
+            <p><strong>1 Person</strong></p>
+            <p><strong>Registration Fee:</strong> ₹100</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contentcreationModal">Register
+              Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Treasure Hunt -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/treasurehunt.jpg" alt="Treasure Hunt" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Treasure Hunt</h5>
+            <p>Embark on an adventurous journey to find the hidden treasure!</p>
+            <p><strong>4 Persons</strong></p>
+            <p><strong>Registration Fee:</strong> ₹200</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#treasurehuntModal">Register
+              Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="stalls" class="container py-5">
+    <h2 class="text-center mb-5">Food and Gaming Stalls</h2>
+    <div class="row">
+      <!-- Food Stalls -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/foodstall.jpg" alt="Food Stalls" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Food Stalls</h5>
+            <p>Enjoy a variety of delicious dishes and snacks at our food stalls. Savor the taste of local and
+              international cuisines!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gaming Stalls -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/gamingstall.jpg" alt="Gaming Stalls" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Gaming Stalls</h5>
+            <p>Take a break and experience thrilling games at our gaming stalls. Fun activities for all ages await you!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Activities -->
+      <div class="col-md-4">
+        <div class="event-card">
+          <img src="imgs/funactivities.jpg" alt="Fun Activities" class="event-image">
+          <div class="event-card-body">
+            <h5 class="event-title">Fun Activities</h5>
+            <p>Join in on exciting fun activities designed to bring out your competitive spirit and create lasting
+              memories!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Modal for Code-A-Thon -->
+  <div class="modal fade" id="codethonModal" tabindex="-1" aria-labelledby="codethonModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="codethonModalLabel">Code-A-Thon Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-codethon.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="codethonForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSdlwRxAyh7Ys4_46BmeWq4lA9Q8yNaBYDXyJp0O1AY2kXKtcw/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participant1">Participant 1 Name</label>
+              <input type="text" id="participant1" name="entry.1250945441" class="form-control"
+                placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="participant2">Participant 2 Name</label>
+              <input type="text" id="participant2" name="entry.1663310676" class="form-control"
+                placeholder="Enter participant 2 name">
+            </div>
+            <div class="form-group">
+              <label for="participant3">Participant 3 Name</label>
+              <input type="text" id="participant3" name="entry.1928955293" class="form-control"
+                placeholder="Enter participant 3 name">
+            </div>
+            <div class="form-group">
+              <label for="participant4">Participant 4 Name</label>
+              <input type="text" id="participant4" name="entry.382781546" class="form-control"
+                placeholder="Enter participant 4 name">
+            </div>
+            <div class="form-group">
+              <label for="college">College Name</label>
+              <input type="text" id="college" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="department">Department Name</label>
+              <input type="text" id="department" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utr">UTR Number</label>
+              <input type="text" id="utr" name="entry.154196092" class="form-control" placeholder="Enter UTR number"
+                required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+          <div class="alert alert-success" id="successMessage">
+            Registration successfully done!
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Non-Technical Events Section -->
-  <div class="container" id="nontechnical">
-    <h2 class="section-title text-center">Non-Technical Events</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/artexhibition.jpg" alt="Art Exhibition">
-          <div class="card-body">
-            <h5 class="card-title">Art Exhibition</h5>
-            <p class="card-text">Showcase your artistic talents in a creative display.</p>
-            <a href="https://forms.gle/Art-Exhibition-Form" class="btn btn-primary" target="_blank">Register</a>
-          </div>
+  <!-- Modal for Code-Clash -->
+  <div class="modal fade" id="codeclashModal" tabindex="-1" aria-labelledby="codeclashModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="codeclashModalLabel">Code-Clash Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/bgmi.jpg" alt="BGMI">
-          <div class="card-body">
-            <h5 class="card-title">BGMI</h5>
-            <p class="card-text">Battle it out in the ultimate gaming showdown.</p>
-            <a href="https://forms.gle/BGMI-Form" class="btn btn-primary" target="_blank">Register</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/freefire.jpg" alt="FreeFire">
-          <div class="card-body">
-            <h5 class="card-title">FreeFire</h5>
-            <p class="card-text">Compete with friends in an action-packed gaming event.</p>
-            <a href="https://forms.gle/FreeFire-Form" class="btn btn-primary" target="_blank">Register</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/contentcreation.jpg" alt="Content Creation">
-          <div class="card-body">
-            <h5 class="card-title">Content Creation</h5>
-            <p class="card-text">Express your creativity through content creation.</p>
-            <a href="https://forms.gle/Content-Creation-Form" class="btn btn-primary" target="_blank">Register</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="imgs/treasurehunt.jpg" alt="Treasure Hunt">
-          <div class="card-body">
-            <h5 class="card-title">Treasure Hunt</h5>
-            <p class="card-text">Solve clues and find the hidden treasures.</p>
-            <a href="https://forms.gle/Treasure-Hunt-Form" class="btn btn-primary" target="_blank">Register</a>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-codeclash.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="codeclashForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScrIHhPNe0gl5DxFt3_J7Sa7CB8ch7iVXDzYMPw9rDhNIYD-w/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participantName">Participant Name</label>
+              <input type="text" id="participantName" name="entry.1250945441" class="form-control"
+                placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+          <div class="alert alert-success" id="successMessage">
+            Registration successfully done!
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <p>&copy; 2024 INFINIT 2K25. All rights reserved.</p>
+  <!-- Modal for TechXpo -->
+  <div class="modal fade" id="techxpoModal" tabindex="-1" aria-labelledby="techxpoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="techxpoModalLabel">TechXpo Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-techxpo.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="techxpoForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfW0FRWYNU1A8NKCjpLi4df8LBrCLcQE-mx26Fw7Az0fQL8Jw/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participant1">Participant 1 Name</label>
+              <input type="text" id="participant1" name="entry.1250945441" class="form-control"
+                placeholder="Enter participant 1 name" required>
+            </div>
+            <div class="form-group">
+              <label for="participant2">Participant 2 Name</label>
+              <input type="text" id="participant2" name="entry.1663310676" class="form-control"
+                placeholder="Enter participant 2 name">
+            </div>
+            <div class="form-group">
+              <label for="participant3">Participant 3 Name</label>
+              <input type="text" id="participant3" name="entry.1928955293" class="form-control"
+                placeholder="Enter participant 3 name">
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+          <div class="alert alert-success" id="successMessage">
+            Registration successfully done!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for Quiz Clash -->
+  <div class="modal fade" id="quizclashModal" tabindex="-1" aria-labelledby="quizclashModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quizclashModalLabel">Quiz Clash Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-quizclash.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="quizclashForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSeWf4Ozp1M68dosHkom5Kii9KWzfkhfPt3YNzjAa6eCzpTVAA/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participant1">Participant 1 Name</label>
+              <input type="text" id="participant1" name="entry.1250945441" class="form-control"
+                placeholder="Enter participant 1 name" required>
+            </div>
+            <div class="form-group">
+              <label for="participant2">Participant 2 Name</label>
+              <input type="text" id="participant2" name="entry.1663310676" class="form-control"
+                placeholder="Enter participant 2 name">
+            </div>
+            <div class="form-group">
+              <label for="participant3">Participant 3 Name</label>
+              <input type="text" id="participant3" name="entry.1928955293" class="form-control"
+                placeholder="Enter participant 3 name">
+            </div>
+            <div class="form-group">
+              <label for="participant4">Participant 4 Name</label>
+              <input type="text" id="participant4" name="entry.382781546" class="form-control"
+                placeholder="Enter participant 4 name">
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+          <div class="alert alert-success" id="successMessage">
+            Registration successfully done!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for BGMI -->
+  <div class="modal fade" id="bgmiModal" tabindex="-1" aria-labelledby="bgmiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bgmiModalLabel">BGMI Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-bgmi.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="bgmiForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScBuo4e1nccFPI0B0yVqadz9MQIGe0hCmu3Q01sRyx1y6X3Lg/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="player1">Player 1 Name</label>
+              <input type="text" id="player1" name="entry.1250945441" class="form-control"
+                placeholder="Enter player 1 name" required>
+            </div>
+            <div class="form-group">
+              <label for="player2">Player 2 Name</label>
+              <input type="text" id="player2" name="entry.1663310676" class="form-control"
+                placeholder="Enter player 2 name">
+            </div>
+            <div class="form-group">
+              <label for="player3">Player 3 Name</label>
+              <input type="text" id="player3" name="entry.1928955293" class="form-control"
+                placeholder="Enter player 3 name">
+            </div>
+            <div class="form-group">
+              <label for="player4">Player 4 Name</label>
+              <input type="text" id="player4" name="entry.382781546" class="form-control"
+                placeholder="Enter player 4 name">
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+          <div class="alert alert-success" id="successMessage">
+            Registration successfully done!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for FreeFire -->
+  <div class="modal fade" id="freefireModal" tabindex="-1" aria-labelledby="freefireModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="freefireModalLabel">FreeFire Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-freefire.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="freefireForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScAri79AeRzPqK5ijbBqEhy98pPdxdqrtJ-8e8TX3wJouUzJA/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="player1">Player 1 Name</label>
+              <input type="text" id="player1" name="entry.1250945441" class="form-control"
+                placeholder="Enter player 1 name" required>
+            </div>
+            <div class="form-group">
+              <label for="player2">Player 2 Name</label>
+              <input type="text" id="player2" name="entry.1663310676" class="form-control"
+                placeholder="Enter player 2 name">
+            </div>
+            <div class="form-group">
+              <label for="player3">Player 3 Name</label>
+              <input type="text" id="player3" name="entry.1928955293" class="form-control"
+                placeholder="Enter player 3 name">
+            </div>
+            <div class="form-group">
+              <label for="player4">Player 4 Name</label>
+              <input type="text" id="player4" name="entry.382781546" class="form-control"
+                placeholder="Enter player 4 name">
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+          <div class="alert alert-success" id="successMessage">
+            Registration successfully done!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for Art Exhibition -->
+  <div class="modal fade" id="artexhibitionModal" tabindex="-1" aria-labelledby="artexhibitionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="artexhibitionModalLabel">Art Exhibition Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-artexhibition.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="artExhibitionForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSf6x6GQaRXKIQCGIt3oEImNNSSJVa_M6ykv2kay-I2Zr_EfRw/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participantName">Participant Name</label>
+              <input type="text" id="participantName" name="entry.277920969" class="form-control"
+                placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.1250945441" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Modal for Content Creation -->
+  <div class="modal fade" id="contentcreationModal" tabindex="-1" aria-labelledby="contentcreationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contentcreationModalLabel">Content Creation Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-contentcreation.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="contentCreationForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfZFw2VqerHbRKFK_8VC2j744lkuxFTS9glifEVNupC4W6qaQ/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participantName">Participant Name</label>
+              <input type="text" id="participantName" name="entry.1250945441" class="form-control"
+                placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Treasure Hunt -->
+  <div class="modal fade" id="treasurehuntModal" tabindex="-1" aria-labelledby="treasurehuntModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="treasurehuntModalLabel">Treasure Hunt Registration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Scan the QR code below to make your payment:</p>
+          <img src="imgs/qrcode-treasurehunt.png" alt="QR Code for Payment"
+            style="width: 150px; height: auto; display: block; margin: 0 auto 20px;">
+          <form id="treasureHuntForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSfNJH3uBeTBaXEfBGlZbygzSoEszlrkKATC392Km7ZvvPu83A/formResponse"
+            method="POST" target="_self">
+            <div class="form-group">
+              <label for="participant1Name">Participant 1 Name</label>
+              <input type="text" id="participant1Name" name="entry.1250945441" class="form-control"
+                placeholder="Enter Participant 1 name" required>
+            </div>
+            <div class="form-group">
+              <label for="participant2Name">Participant 2 Name</label>
+              <input type="text" id="participant2Name" name="entry.1663310676" class="form-control"
+                placeholder="Enter Participant 2 name" required>
+            </div>
+            <div class="form-group">
+              <label for="participant3Name">Participant 3 Name</label>
+              <input type="text" id="participant3Name" name="entry.1928955293" class="form-control"
+                placeholder="Enter Participant 3 name" required>
+            </div>
+            <div class="form-group">
+              <label for="participant4Name">Participant 4 Name</label>
+              <input type="text" id="participant4Name" name="entry.382781546" class="form-control"
+                placeholder="Enter Participant 4 name" required>
+            </div>
+            <div class="form-group">
+              <label for="collegeName">College Name</label>
+              <input type="text" id="collegeName" name="entry.277920969" class="form-control"
+                placeholder="Enter college name" required>
+            </div>
+            <div class="form-group">
+              <label for="departmentName">Department Name</label>
+              <input type="text" id="departmentName" name="entry.868417540" class="form-control"
+                placeholder="Enter department name" required>
+            </div>
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input type="tel" id="mobileNumber" name="entry.750321132" class="form-control"
+                placeholder="Enter mobile number" required>
+            </div>
+            <div class="form-group">
+              <label for="utrNumber">UTR Number</label>
+              <input type="text" id="utrNumber" name="entry.154196092" class="form-control"
+                placeholder="Enter UTR number" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="countdown.js"></script>
 </body>
 
 </html>
