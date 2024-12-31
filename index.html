@@ -17,6 +17,32 @@
       background: #322653;
     }
 
+    /* Navbar styling */
+.navbar .nav-link {
+  color: #ea1179 !important; /* Apply the desired color */
+  font-weight: bold; /* Make the text bold */
+  text-transform: uppercase; /* Optional: make text uppercase */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar .nav-link:hover {
+  color: #c30e66 !important; /* Darker shade for hover effect */
+  text-decoration: underline; /* Optional: underline on hover */
+}
+
+/* Navbar brand styling */
+.navbar .navbar-brand {
+  color: #ea1179; /* Match the color of nav links */
+  font-weight: bold; /* Make the brand name bold */
+  font-size: 1.5rem; /* Optional: increase font size */
+  transition: color 0.3s;
+}
+
+.navbar .navbar-brand:hover {
+  color: #c30e66; /* Darker shade on hover */
+}
+
+
     .navbar-brand {
       font-size: 1.8rem;
       font-weight: bold;
@@ -238,7 +264,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" color: #ea1179 href="#about-event">About</a>
+            <a class="nav-link" href="#about-event">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#technical">Technical Events</a>
