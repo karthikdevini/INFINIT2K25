@@ -7,7 +7,7 @@ body {
 .navbar {
   background: #000;
   height: 80px;
-  line-height: 80px;
+  line-height: 60px;
 }
 
 .navbar-toggler {
