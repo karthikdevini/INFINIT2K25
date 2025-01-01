@@ -264,3 +264,35 @@ nav {
   color: #ff7a18;
   font-weight: bold;
 }
+
+.btn {
+  background-image: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.btn:hover {
+  background-image: linear-gradient(130deg, #af002d, #319197 41.07%, #ff7a18 76.05%);
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar-nav {
+    display: block;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 20px;
+  }
+}
