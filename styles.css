@@ -20,11 +20,6 @@ body {
   transition: color 0.3s;
 }
 
-.navbar .nav-link:hover {
-  color: #ea1179 !important;
-  text-decoration: underline;
-}
-
 .navbar .navbar-brand {
   color: #FFD700;
   font-weight: bold;
