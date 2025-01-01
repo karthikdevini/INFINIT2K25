@@ -1,13 +1,17 @@
-/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: #000;
+  font-family: "Comfortaa", sans-serif;
+  color: #f9f9f9;
 }
 
-/* Navbar styling */
 .navbar {
-  background: #c30e66;
+  background: #000;
+  height: 80px;
+  line-height: 80px;
+}
+
+.navbar-toggler {
+  background-image: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
 }
 
 .navbar .nav-link {
@@ -17,7 +21,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-  color: #c30e66 !important;
+  color: #ea1179 !important;
   text-decoration: underline;
 }
 
@@ -30,12 +34,61 @@ body {
 }
 
 .navbar .navbar-brand:hover {
-  color: #c30e66;
+  color: #ea1179;
 }
 
-/* Countdown Section */
+.landing-section {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100vh;
+  justify-content: center;
+  padding: 5rem 3rem;
+  position: relative;
+  width: 100%;
+}
+
+.landing-section video,
+.landing-section:before {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.landing-section video {
+  object-fit: cover;
+  filter: brightness(0.5);
+}
+
+.landing-section h1 {
+  max-width: 500px;
+  position: relative;
+  z-index: 100;
+  font-size: 2rem;
+}
+
+.landing-section h1 span {
+  font-style: italic;
+}
+
+.landing-section p {
+  max-width: 500px;
+  position: relative;
+  z-index: 100;
+  line-height: 1.8;
+  font-size: 0.75rem;
+}
+
+nav {
+  position: relative;
+  z-index: 200;
+}
+
 #countdown-section {
-  background-color: #f9f9f9;
+  background-color: #000;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
@@ -55,7 +108,7 @@ body {
 }
 
 .countdown-element {
-  background-color: #ff7f00;
+  background-color: #ff7a18;
   padding: 10px;
   border-radius: 8px;
   color: white;
@@ -82,24 +135,10 @@ body {
   margin-bottom: 10px;
 }
 
-.progress {
-  height: 5px;
-  background-color: #ddd;
-  border-radius: 4px;
-  margin-top: 15px;
-}
-
-.progress-bar {
-  height: 100%;
-  background-color: #ff7f00;
-  border-radius: 4px;
-  transition: width 1s ease;
-}
-
-/* Event Cards */
 .event-card {
-  background: white;
-  border: 1px solid #ddd;
+  background: #eaeaea;
+  color: #000;
+  border: 2px linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -123,7 +162,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #6610f2;
+  background-image: linear-gradient(130deg, #ff7a18, #af002d 41.07%, #319197 76.05%);
   border: none;
 }
 
@@ -131,23 +170,27 @@ body {
   background-color: #ff6347;
 }
 
-/* Modals */
 .modal-content {
   border-radius: 10px;
+  background-color: #000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .modal-title {
-  color: #6610f2;
+  color: #ea1179;
   font-weight: bold;
 }
 
+.modal-header {
+  border-bottom: #000;
+  background-color: #eaeaea;
+}
+
 .modal-body img {
-  border: 2px solid #6610f2;
+  border: 2px solid #2ddede;
   border-radius: 5px;
 }
 
-/* Alerts */
 .alert {
   display: none;
   margin-top: 20px;
@@ -163,7 +206,6 @@ body {
   margin-top: 10px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   #countdown-section {
     width: 90%;
@@ -210,4 +252,15 @@ body {
   #countdown-section h2 {
     font-size: 16px;
   }
+}
+
+.designed-by {
+  font-size: 16px;
+  color: #2ddede;
+  text-align: center;
+}
+
+.highlight-name {
+  color: #ff7a18;
+  font-weight: bold;
 }
